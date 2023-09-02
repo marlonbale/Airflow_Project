@@ -33,7 +33,7 @@ Airflow could be considered and workflow orchestration tool where you can build,
 - Amazon S3 bucket: To save dataframe created in main.py
 
 ## Project execution
-![Architecture](Airflow_Project/architecture.png)
+![Architecture](https://github.com/marlonbale/Airflow_Project/blob/main/Architecture.png)
 
 
 
