@@ -58,7 +58,7 @@ step1:
 We are setting up necessary components working with Apache airflow a tool for     scheduling and running data workflows.Import the weather_etl function from a Python file named main. This function is the one we explained earlier, responsible for getting and processing weather data.
 
 step 2: Creating a DAG instance:
-  # Define default arguments for the DAG
+   Define default arguments for the DAG
   default_args = {
       'owner': 'Marlon',               # Person responsible for the DAG
       'depends_on_past': False,        # Whether tasks depend on the success of previous runs
@@ -67,7 +67,7 @@ step 2: Creating a DAG instance:
       'retry_delay': timedelta(minutes=5),  # How long to wait between task retries
   }
   
-  # Create the DAG instance
+  Create the DAG instance
   dag = DAG(
       'weather_etl_dag',                 # Unique identifier for the DAG
       default_args=default_args,         # Use the default arguments defined above
@@ -79,14 +79,14 @@ Define the DAG with a unique identifier, description, and schedule interval. Thi
 
 step 3: Python Operators
 
-  # Create a PythonOperator called 'run_etl'
+  Create a PythonOperator called 'run_etl'
   run_etl = PythonOperator(
       task_id='weather_etl',         # Unique identifier for this task
       python_callable=weather_etl,   # The Python function to execute (weather_etl function)
       dag=dag,                       # The DAG to which this task belongs
   )
   
-  # Add the 'run_etl' task to the DAG
+  Add the 'run_etl' task to the DAG
   run_etl
 
 In this step we are defining a pythonOpearor called run_etl:
