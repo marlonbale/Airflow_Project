@@ -48,7 +48,7 @@ import s3fs  # Allows us to interact with cloud storage
 
 2. In the [weather_dag.py](weather_dag.py) the following  were done.
    
-step1:
+**step1:**
   from datetime import timedelta
   from airflow import DAG
   from airflow.operators.python_operator import PythonOperator
@@ -57,7 +57,7 @@ step1:
 
 We are setting up necessary components working with Apache airflow a tool for     scheduling and running data workflows.Import the weather_etl function from a Python file named main. This function is the one we explained earlier, responsible for getting and processing weather data.
 
-step 2: Creating a DAG instance:
+**step 2: Creating a DAG instance:**
    Define default arguments for the DAG
   default_args = {
       'owner': 'Marlon',               # Person responsible for the DAG
@@ -77,7 +77,7 @@ step 2: Creating a DAG instance:
 
 Define the DAG with a unique identifier, description, and schedule interval. This DAG is set to run daily (schedule_interval=timedelta(days=1)).
 
-step 3: Python Operators
+**step 3: Python Operators**
 
   Create a PythonOperator called 'run_etl'
   run_etl = PythonOperator(
