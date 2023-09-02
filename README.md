@@ -10,7 +10,7 @@ In this project goal is to understand ETL (Extract,Transfer,Load) process and al
 2. [Project Overview](#project-overview)
 3. [Dependencies and Tools](#dependencies-and-tools)
 4. [Project Excecution](#project-execution)
-5. [Building and Pushing the Docker Image](#building-and-pushing-the-docker-image)
+5. [Setting up in Airflow using EC2 instance](#Setting-up-in-Airflow-using-EC2-instance)
 6. [Conclusion](#conclusion)
 
 ## Project Overview
@@ -37,13 +37,66 @@ Airflow could be considered and workflow orchestration tool where you can build,
 
 The above image shows the architecture in order to achieve this project.
 
-1. In the [main.py](main.py)
-2. Defined the Python dependencies: In project directory, created a file called requirements.txt. This file is to list all the Python libraries and dependencies the Flask application requires. These libraries are like building blocks that provide additional functionality to your application.
-3. Create a Dockerfile: In the same project directory, created a file called Dockerfile. This file will contain instructions for building the Docker image.
-4. Build the Docker image: Once Flask application code and requirements.txt file was created , next step was to build the Docker image. Terminal or command prompt to navigate to the project directory, and run the command to build the image. Docker will use the instructions in the Dockerfile to build an image that includes application code and its dependencies.
+1. In the [main.py](main.py) a function is created ("weather_etl) that retrieves current weather data for New York city, processes it and saces it as a csv file in an Amazon S3 bucket so that it can be easily shared and accessed by others.
+   
+# Importing necessary Python libraries
+import requests  # Allows us to make internet requests
+import pandas as pd  # Helps us work with data effectively
+import json  # Used for working with data in a special format
+from datetime import datetime  # Helps with date and time operations
+import s3fs  # Allows us to interact with cloud storage
+
+2. In the [weather_dag.py](weather_dag.py) the following  were done.
+   
+step1:
+  from datetime import timedelta
+  from airflow import DAG
+  from airflow.operators.python_operator import PythonOperator
+  from datetime import datetime
+  from main import weather_etl
+
+We are setting up necessary components working with Apache airflow a tool for     scheduling and running data workflows.Import the weather_etl function from a Python file named main. This function is the one we explained earlier, responsible for getting and processing weather data.
+
+step 2: Creating a DAG instance:
+  # Define default arguments for the DAG
+  default_args = {
+      'owner': 'Marlon',               # Person responsible for the DAG
+      'depends_on_past': False,        # Whether tasks depend on the success of previous runs
+      'start_date': datetime(2023, 8, 29),  # When the DAG should start running
+      'retries': 1,                   # How many times a task should retry in case of failure
+      'retry_delay': timedelta(minutes=5),  # How long to wait between task retries
+  }
+  
+  # Create the DAG instance
+  dag = DAG(
+      'weather_etl_dag',                 # Unique identifier for the DAG
+      default_args=default_args,         # Use the default arguments defined above
+      description='DAG to extract weather data',  # Description of the DAG's purpose
+      schedule_interval=timedelta(days=1),      # How often the DAG should run (daily in this case)
+  )
+
+Define the DAG with a unique identifier, description, and schedule interval. This DAG is set to run daily (schedule_interval=timedelta(days=1)).
+
+step 3: Python Operators
+
+  # Create a PythonOperator called 'run_etl'
+  run_etl = PythonOperator(
+      task_id='weather_etl',         # Unique identifier for this task
+      python_callable=weather_etl,   # The Python function to execute (weather_etl function)
+      dag=dag,                       # The DAG to which this task belongs
+  )
+  
+  # Add the 'run_etl' task to the DAG
+  run_etl
+
+In this step we are defining a pythonOpearor called run_etl:
+task_id is a unique identifier for this task.
+python_callable specifies the Python function that this task will execute, which is the weather_etl function we explained earlier.
+dag indicates which DAG this task belongs to, and it's set to our dag variable, which is our weather extraction DAG.
+This operator will run the weather_etl function as a task within our DAG, extracting and processing weather data.
 
 
-## Building and Pushing the Docker Image:
+## Setting up in Airflow using EC2 instance:
 To build and push the Docker image to a registry, The below are the steps taken:
 
 1. Log in to the Docker registry using `docker login`.
