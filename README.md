@@ -118,8 +118,12 @@ once the airflow is being installed you can open airflow using airflow standalon
 2.You can use any text editor or an integrated development environment (IDE) to create DAG Python files.
 3.To run a DAG, you can trigger it manually from the Airflow web interface.Access the Airflow web interface at http://your-ec2-public-ip:8080. Here, you can monitor, manage, and trigger your DAGs.
 
+![Airflow](https://github.com/marlonbale/Airflow_Project/blob/main/Airflow_local.png)
 
+![Airflow](https://github.com/marlonbale/Airflow_Project/blob/main/Airflow_DAGS.png)
 
+Weather_dag:
+![Airflow](https://github.com/marlonbale/Airflow_Project/blob/main/weather_DAG.png)
 
 ## Conclusion
 In this project, we demonstrated how to containerize a Python application using Docker. By containing the application and its dependencies in a Docker image, we can make sure a  consistent and reliable execution across different environments. 
