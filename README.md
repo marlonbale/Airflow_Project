@@ -100,6 +100,9 @@ This operator will run the weather_etl function as a task within our DAG, extrac
 Setting up Airflow in EC2 instance could be a multiple process. however once the EC2 is running use ssh to connect and replace the key that you are recieving .
 Once we are in the EC2 instace we have to follow several commands to get airflow going on. those are as below:
 
+![EC2](https://github.com/marlonbale/Airflow_Project/blob/main/ec2_instance.png)
+
+
 sudo apt-get update: to update the packages
 sudo apt install python3-pip
 sudo apt install apache-airflow
@@ -107,6 +110,15 @@ sudo pip install pandas
 sudo pip install s3fs
 sudo pip install datetime
 sudo pip install requests
+
+once the airflow is being installed you can open airflow using airflow standalone.
+
+**Create and Run Airflow DAGs:**
+1.Create your Airflow DAGs (workflow definitions) in the ~/airflow/dags directory on your EC2 instance.
+2.You can use any text editor or an integrated development environment (IDE) to create DAG Python files.
+3.To run a DAG, you can trigger it manually from the Airflow web interface.Access the Airflow web interface at http://your-ec2-public-ip:8080. Here, you can monitor, manage, and trigger your DAGs.
+
+
 
 
 ## Conclusion
