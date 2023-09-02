@@ -39,7 +39,7 @@ The above image shows the architecture in order to achieve this project.
 
 1. In the [main.py](main.py) a function is created ("weather_etl) that retrieves current weather data for New York city, processes it and saces it as a csv file in an Amazon S3 bucket so that it can be easily shared and accessed by others.
    
-# Importing necessary Python libraries
+**Importing necessary Python libraries**
 import requests  # Allows us to make internet requests
 import pandas as pd  # Helps us work with data effectively
 import json  # Used for working with data in a special format
