@@ -35,9 +35,9 @@ Airflow could be considered and workflow orchestration tool where you can build,
 ## Project execution
 ![Architecture](https://github.com/marlonbale/Airflow_Project/blob/main/Architecture.png)
 
+The above image shows the architecture in order to achieve this project.
 
-
-1. Wrote a simple Flask web application: Started by creating a basic Flask web application using Python. Flask is a beginner-friendly web framework that allows you to build web applications easily.
+1. In the [main.py](main.py)
 2. Defined the Python dependencies: In project directory, created a file called requirements.txt. This file is to list all the Python libraries and dependencies the Flask application requires. These libraries are like building blocks that provide additional functionality to your application.
 3. Create a Dockerfile: In the same project directory, created a file called Dockerfile. This file will contain instructions for building the Docker image.
 4. Build the Docker image: Once Flask application code and requirements.txt file was created , next step was to build the Docker image. Terminal or command prompt to navigate to the project directory, and run the command to build the image. Docker will use the instructions in the Dockerfile to build an image that includes application code and its dependencies.
