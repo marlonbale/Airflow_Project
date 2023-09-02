@@ -33,8 +33,8 @@ Airflow could be considered and workflow orchestration tool where you can build,
 - Amazon S3 bucket: To save dataframe created in main.py
 
 ## Project execution
-![Architecture](Airflow_Project
-/architecture.png)
+![Architecture](Airflow_Project/architecture.png)
+
 
 
 1. Wrote a simple Flask web application: Started by creating a basic Flask web application using Python. Flask is a beginner-friendly web framework that allows you to build web applications easily.
