@@ -23,7 +23,7 @@ The ETL process:
 3. Load: Once the data is ready and cleaned the goal is to store it in a structural format such as a csv file or a databse.
 
 Airflow and DAG:
-Airflow could be considered and workflow orchestration tool where you can build, schedule and monitor data pipleines. Workflow here basically means the sequence of every task. In Airflow it is known as a DAG. As a visual representation f the workflow for an ETL process. It defines the order in which different tasks are executed. Each task performs a specific job in the ETL process.
+Airflow could be considered and workflow orchestration tool where you can build, schedule and monitor data pipleines. Workflow here basically means the sequence of every task. In Airflow it is known as a DAG. As a visual representation of the workflow for an ETL process. It defines the order in which different tasks are executed. Each task performs a specific job in the ETL process.
 
 
 ## Dependencies and Tools:
@@ -33,7 +33,8 @@ Airflow could be considered and workflow orchestration tool where you can build,
 - Amazon S3 bucket: To save dataframe created in main.py
 
 ## Project execution
-To dockerize the application, following were the steps taken :
+![Architecture](architecture.png)
+
 
 1. Wrote a simple Flask web application: Started by creating a basic Flask web application using Python. Flask is a beginner-friendly web framework that allows you to build web applications easily.
 2. Defined the Python dependencies: In project directory, created a file called requirements.txt. This file is to list all the Python libraries and dependencies the Flask application requires. These libraries are like building blocks that provide additional functionality to your application.
