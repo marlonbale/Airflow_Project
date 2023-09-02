@@ -97,20 +97,16 @@ This operator will run the weather_etl function as a task within our DAG, extrac
 
 
 ## Setting up in Airflow using EC2 instance:
-To build and push the Docker image to a registry, The below are the steps taken:
+Setting up Airflow in EC2 instance could be a multiple process. however once the EC2 is running use ssh to connect and replace the key that you are recieving .
+Once we are in the EC2 instace we have to follow several commands to get airflow going on. those are as below:
 
-1. Log in to the Docker registry using `docker login`.
-2. Build an Image using : **docker build -t flask-app-image .** (This command builds the Docker image using the Dockerfile and tags it as flask-app-image.)
-3. Run the Docker container based on the image using the following command:
-   **docker run -p 5000:5000 flask-app-image**
-This command starts the Docker container and maps port 5000 of the container to port 5000 of our local machine.
-Flask application could be accessed by visiting http://localhost:5000 in our web browser and we should see the "Hello, Docker!" message displayed.
-By following these steps, Flask application will be running inside a Docker container and accessible through local machine's port 5000.
-
-#Additional:
-1. Created a repository and pushed the image into it by:
-     1. **docker tag flask-app-image marlondockerb/flaskapp:v1.0**
-     2. **docker push marlondockerb/flaskapp:v1.0**
+sudo apt-get update: to update the packages
+sudo apt install python3-pip
+sudo apt install apache-airflow
+sudo pip install pandas
+sudo pip install s3fs
+sudo pip install datetime
+sudo pip install requests
 
 
 ## Conclusion
