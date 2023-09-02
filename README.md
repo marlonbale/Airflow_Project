@@ -125,9 +125,16 @@ once the airflow is being installed you can open airflow using airflow standalon
 Weather_dag:
 ![Airflow](https://github.com/marlonbale/Airflow_Project/blob/main/weather_DAG.png)
 
+**Saving data on s3 bucket:**
+
+![Airflow](https://github.com/marlonbale/Airflow_Project/blob/main/s3bucket.png)
+
+
+
+
+
 ## Conclusion
-In this project, we demonstrated how to containerize a Python application using Docker. By containing the application and its dependencies in a Docker image, we can make sure a  consistent and reliable execution across different environments. 
-Docker allows for easier deployment and distribution of applications, making it a valuable tool for modern software development and deployment processes.
+Main lesson learnt was that Airflow is a great tool for orchestration, coding DAG was very straight forward. Task flow seems to be very straightforward as well. (Expanding this project to cloud platforms was because hosting airflow locally and using docker container kept failing.)
 
 # Follow Me On
 [LinkedIn](https://www.linkedin.com/in/marlon-balasuriya-479309b5/)
