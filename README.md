@@ -134,7 +134,7 @@ Weather_dag:
 
 
 ## Conclusion
-Main lesson learnt was that Airflow is a great tool for orchestration, coding DAG was very straight forward. Task flow seems to be very straightforward as well. (Expanding this project to cloud platforms was because hosting airflow locally and using docker container kept failing.)
+Main lesson learnt was that Airflow is a great tool for orchestrationand schedule ETL process, coding DAG was very straight forward. Task flow seems to be very straightforward as well. (Expanding this project to cloud platforms was because hosting airflow locally and using docker container kept failing.)
 
 # Follow Me On
 [LinkedIn](https://www.linkedin.com/in/marlon-balasuriya-479309b5/)
